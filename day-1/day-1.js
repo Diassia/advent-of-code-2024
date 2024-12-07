@@ -23,17 +23,30 @@ const separateIntoTwoArrays = () => {
         const sortedFirstArray = firstArray.sort()
         const sortedSecondArray = secondArray.sort()
 
-        for (let i = 0; i < sortedFirstArray.length; i++) {
-            const numberFirstArray = sortedFirstArray[i]
-            const numberSecondArray = sortedSecondArray[i]
+        // day 1 part 1
+        // for (let i = 0; i < sortedFirstArray.length; i++) {
+        //     const numberFirstArray = sortedFirstArray[i]
+        //     const numberSecondArray = sortedSecondArray[i]
 
-            if (numberFirstArray > numberSecondArray) {
-                totalDistance += numberFirstArray - numberSecondArray
-            } else {
-                totalDistance += numberSecondArray - numberFirstArray
-            }
-        }
+        //     if (numberFirstArray > numberSecondArray) {
+        //         totalDistance += numberFirstArray - numberSecondArray
+        //     } else {
+        //         totalDistance += numberSecondArray - numberFirstArray
+        //     }
+        // }
+        let timesNumberAppears = 0
 
+        // day 1 part 2
+        sortedFirstArray.map((number, index) => {
+            sortedSecondArray.map((secondNumber) => {
+                if (number == secondNumber) {
+                    timesNumberAppears += 1
+                }
+            })
+            
+            totalDistance += (timesNumberAppears * number)
+            timesNumberAppears = 0
+        })
         console.log(totalDistance)
     })
 }
